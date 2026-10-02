@@ -1,0 +1,685 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Broncomiel, jarabe con extracto de Hedera helix y propóleo. 120 mL. Registro Invima PFT2021-0002798.">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0A100B" media="(prefers-color-scheme: dark)">
+<style>
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body{margin:0}
+img{max-width:100%}
+[hidden]{display:none!important}
+</style>
+<title>Broncomiel</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Hanken+Grotesk:wght@400;500;600;700&display=swap">
+
+<style>
+/* Layout: columna ancha con mucho aire, bloques a sangre que alternan crema y
+   verde bosque, y las macros de hiedra y propóleo a pantalla completa. El tipo
+   display es una serif de alto contraste; el cuerpo, una grotesca cálida. */
+:root{
+  --bosque:#0D2A19;      /* el verde oscuro de la etiqueta */
+  --hoja:#3C8C4F;
+  --miel:#C08A1E;
+  --miel-claro:#E9C470;
+  --crema:#FAF6EC;
+  --crema-2:#F2ECDC;
+  --papel:#FFFFFF;
+  --tinta:#141A15;
+  --tinta-2:#5C665A;
+  --linea:#E3DCC9;
+  --rojo:#A8322A;
+  --aviso:#8A5A12;
+  --aviso-fondo:#FBF0D9;
+  --display:"Instrument Serif",Georgia,"Times New Roman",serif;
+  --texto:"Hanken Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bosque:#081409; --hoja:#6FC482; --miel:#E0B458; --miel-claro:#F0D191;
+    --crema:#0E140F; --crema-2:#141C15; --papel:#0A100B;
+    --tinta:#EFF2EC; --tinta-2:#9DA89B; --linea:#23301F;
+    --rojo:#E07B6F; --aviso:#E7C070; --aviso-fondo:#241E10;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bosque:#081409; --hoja:#6FC482; --miel:#E0B458; --miel-claro:#F0D191;
+  --crema:#0E140F; --crema-2:#141C15; --papel:#0A100B;
+  --tinta:#EFF2EC; --tinta-2:#9DA89B; --linea:#23301F;
+  --rojo:#E07B6F; --aviso:#E7C070; --aviso-fondo:#241E10;
+  color-scheme:dark;
+}
+
+*{box-sizing:border-box}
+html{-webkit-tap-highlight-color:rgba(13,42,25,.14)}
+a,button,summary,.opcion{touch-action:manipulation}
+[id]{scroll-margin-top:96px}
+body{
+  background:var(--papel); color:var(--tinta);
+  font-family:var(--texto); font-size:16.5px; line-height:1.65;
+  margin:0; padding-bottom:88px; -webkit-font-smoothing:antialiased;
+}
+@media (min-width:920px){ body{padding-bottom:0} }
+.envoltura{max-width:1200px; margin-inline:auto; padding-inline:22px}
+h1,h2,h3{font-family:var(--display); font-weight:400; letter-spacing:-.012em; text-wrap:balance; margin:0; line-height:1.03}
+p{margin:0}
+a{color:inherit}
+img{display:block}
+
+.saltar{position:absolute; left:-9999px; top:0; z-index:60; background:var(--bosque); color:var(--crema); padding:12px 18px; border-radius:0 0 10px 0; font-weight:700; text-decoration:none}
+.saltar:focus{left:0}
+
+.rotulo{font-size:11px; font-weight:700; letter-spacing:.2em; text-transform:uppercase; color:var(--miel)}
+
+/* ── cabecera ─────────────────────────────────────────────────── */
+.cintillo{background:var(--bosque); color:var(--crema); font-size:12.5px; font-weight:500; text-align:center; padding:10px 22px; letter-spacing:.02em}
+.barra{position:sticky; top:env(safe-area-inset-top,0px); z-index:30; background:var(--papel); border-bottom:1px solid var(--linea)}
+.barra .envoltura{display:flex; align-items:center; justify-content:space-between; gap:14px; padding-block:14px}
+.logo{font-family:var(--texto); font-weight:700; font-size:17px; letter-spacing:.06em; color:var(--hoja)}
+.logo small{display:block; font-weight:400; font-size:10.5px; letter-spacing:.02em; color:var(--tinta-2); margin-top:1px; text-transform:none}
+.barra .reg{font-size:11px; color:var(--tinta-2); text-align:right; line-height:1.3; font-variant-numeric:tabular-nums}
+
+/* ── ficha ────────────────────────────────────────────────────── */
+.ficha{padding-block:28px 46px}
+.ficha .caja{display:grid; gap:30px}
+.ficha .caja > *{min-width:0}
+@media (min-width:920px){ .ficha{padding-block:46px 70px} .ficha .caja{grid-template-columns:1.05fr 1fr; gap:60px; align-items:start} }
+
+.galeria{display:grid; gap:12px; min-width:0}
+.principal{position:relative; background:var(--crema-2); border-radius:6px; overflow:hidden; aspect-ratio:4/5; min-width:0; width:100%}
+.principal img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover}
+.miniaturas{display:flex; gap:10px; min-width:0}
+.mini{flex:1 1 0; min-width:0; aspect-ratio:1/1; border-radius:4px; overflow:hidden; padding:0; border:1px solid var(--linea); background:var(--crema-2); cursor:pointer}
+.mini img{width:100%; height:100%; object-fit:cover}
+.mini[aria-pressed="true"]{border-color:var(--bosque); border-width:2px}
+@media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) .mini[aria-pressed="true"]{border-color:var(--hoja)} }
+:root[data-theme="dark"] .mini[aria-pressed="true"]{border-color:var(--hoja)}
+
+.ruta{font-size:12.5px; color:var(--tinta-2); margin-bottom:14px}
+.ficha h1{font-size:clamp(48px,13vw,78px); letter-spacing:-.02em}
+.marca-sello{display:inline-block; margin-top:14px; font-size:11.5px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--bosque); background:color-mix(in srgb,var(--hoja) 18%,transparent); border-radius:3px; padding:6px 12px}
+@media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) .marca-sello{color:var(--hoja)} }
+:root[data-theme="dark"] .marca-sello{color:var(--hoja)}
+.resumen{margin-top:18px; font-size:18.5px; line-height:1.5; color:var(--tinta-2); max-width:44ch}
+
+.valoracion{display:flex; align-items:center; gap:9px; margin-top:16px; font-size:13.5px; color:var(--tinta-2)}
+.estrellas{display:flex; gap:2px}
+.estrellas svg{width:15px; height:15px; color:var(--linea)}
+
+.precio-caja{margin-top:26px; padding-top:24px; border-top:1px solid var(--linea)}
+.precio-fila{display:flex; align-items:baseline; gap:11px; flex-wrap:wrap}
+.precio{font-family:var(--display); font-size:46px; letter-spacing:-.02em; color:var(--tinta); font-variant-numeric:tabular-nums}
+.tachado{font-size:17px; color:var(--tinta-2); text-decoration:line-through}
+.etiqueta-ahorro{font-size:12.5px; font-weight:700; color:var(--miel); background:color-mix(in srgb,var(--miel) 15%,transparent); border-radius:999px; padding:4px 11px}
+
+.opciones{display:grid; gap:9px; margin-top:20px}
+.opcion{
+  display:grid; grid-template-columns:20px 1fr auto; gap:14px; align-items:center;
+  border:1px solid var(--linea); border-radius:5px; padding:15px 17px;
+  background:var(--papel); cursor:pointer; text-align:left; width:100%;
+  font-family:var(--texto); font-size:15.5px; color:var(--tinta);
+  transition:border-color .16s ease, background .16s ease;
+}
+.opcion:hover{border-color:var(--hoja)}
+.opcion[aria-checked="true"]{border-color:var(--bosque); border-width:2px; padding:14px 16px; background:color-mix(in srgb,var(--hoja) 7%,var(--papel))}
+@media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) .opcion[aria-checked="true"]{border-color:var(--hoja)} }
+:root[data-theme="dark"] .opcion[aria-checked="true"]{border-color:var(--hoja)}
+.marca-radio{width:19px; height:19px; border-radius:50%; border:1.5px solid var(--linea); display:grid; place-items:center}
+.opcion[aria-checked="true"] .marca-radio{border-color:var(--bosque)}
+@media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) .opcion[aria-checked="true"] .marca-radio{border-color:var(--hoja)} }
+:root[data-theme="dark"] .opcion[aria-checked="true"] .marca-radio{border-color:var(--hoja)}
+.marca-radio i{width:9px; height:9px; border-radius:50%; background:var(--bosque); transform:scale(0); transition:transform .14s ease}
+@media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) .marca-radio i{background:var(--hoja)} }
+:root[data-theme="dark"] .marca-radio i{background:var(--hoja)}
+.opcion[aria-checked="true"] .marca-radio i{transform:scale(1)}
+.opcion .qty{font-weight:700}
+.opcion .sub{display:block; font-size:12.5px; color:var(--tinta-2); font-weight:400; margin-top:1px}
+.opcion .val{font-weight:700; font-variant-numeric:tabular-nums; text-align:right}
+.opcion .val s{display:block; font-weight:400; font-size:12.5px; color:var(--tinta-2)}
+
+.boton{
+  display:inline-flex; align-items:center; justify-content:center; gap:9px;
+  min-height:56px; padding:0 30px; border-radius:4px; border:0;
+  background:var(--bosque); color:var(--crema); font-family:var(--texto);
+  font-weight:700; font-size:17px; letter-spacing:.01em; text-decoration:none;
+  cursor:pointer; width:100%; transition:filter .16s ease, transform .16s ease;
+}
+@media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) .boton{background:var(--hoja); color:#06120A} }
+:root[data-theme="dark"] .boton{background:var(--hoja); color:#06120A}
+.boton:hover{filter:brightness(1.14)}
+.boton:active{transform:translateY(1px)}
+.boton.fantasma{background:transparent; color:var(--tinta); border:1px solid var(--linea); font-weight:600}
+.bajo-boton{margin-top:11px; font-size:13px; color:var(--tinta-2); text-align:center}
+
+.puntos{list-style:none; margin:24px 0 0; padding:0; display:grid; gap:12px}
+.puntos li{display:flex; gap:12px; align-items:flex-start; font-size:15.5px}
+.puntos svg{width:18px; height:18px; flex:none; margin-top:3px; color:var(--hoja)}
+
+.plegables{margin-top:24px; border-top:1px solid var(--linea)}
+.plegables details{border-bottom:1px solid var(--linea)}
+.plegables summary{cursor:pointer; list-style:none; padding:16px 30px 16px 0; position:relative; font-weight:600; font-size:15.5px}
+.plegables summary::-webkit-details-marker{display:none}
+.plegables summary::after{content:""; position:absolute; right:6px; top:50%; width:9px; height:9px; border-right:1.5px solid var(--miel); border-bottom:1.5px solid var(--miel); transform:translateY(-70%) rotate(45deg); transition:transform .18s ease}
+.plegables details[open] summary::after{transform:translateY(-30%) rotate(-135deg)}
+.plegables .cuerpo{padding:0 0 18px; color:var(--tinta-2); font-size:15px; display:grid; gap:10px}
+
+/* ── garantías ────────────────────────────────────────────────── */
+.garantias{border-block:1px solid var(--linea); background:var(--crema)}
+.garantias .envoltura{display:grid; grid-template-columns:repeat(2,1fr); gap:20px; padding-block:30px}
+@media (min-width:800px){ .garantias .envoltura{grid-template-columns:repeat(4,1fr)} }
+.garantia{display:grid; gap:5px}
+.garantia svg{width:21px; height:21px; color:var(--miel)}
+.garantia b{font-size:14.5px; font-weight:700}
+.garantia span{font-size:13px; color:var(--tinta-2); line-height:1.5}
+
+/* ── secciones ────────────────────────────────────────────────── */
+section{padding-block:70px}
+section.crema{background:var(--crema)}
+section.bosque{background:var(--bosque); color:#D6E2D4}
+section.bosque h2, section.bosque h3{color:var(--crema)}
+section.bosque .rotulo{color:var(--miel-claro)}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]) section.bosque{color:var(--tinta-2)}
+  :root:not([data-theme="light"]) section.bosque h2, :root:not([data-theme="light"]) section.bosque h3{color:var(--tinta)}
+}
+:root[data-theme="dark"] section.bosque{color:var(--tinta-2)}
+:root[data-theme="dark"] section.bosque h2, :root[data-theme="dark"] section.bosque h3{color:var(--tinta)}
+
+.cabeza{display:grid; gap:14px; margin-bottom:34px; max-width:42ch}
+.cabeza h2{font-size:clamp(36px,8vw,56px)}
+.cabeza p{color:var(--tinta-2); font-size:17.5px}
+section.bosque .cabeza p{color:#AEC0AC}
+@media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) section.bosque .cabeza p{color:var(--tinta-2)} }
+:root[data-theme="dark"] section.bosque .cabeza p{color:var(--tinta-2)}
+
+/* planta: macro a sangre + texto */
+.planta{display:grid; gap:0}
+@media (min-width:920px){ .planta{grid-template-columns:1fr 1fr; align-items:stretch} .planta.volteada > figure{order:2} }
+.planta figure{margin:0; min-height:320px; position:relative; overflow:hidden}
+.planta figure img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover}
+.planta .texto{padding:48px 22px; display:grid; gap:16px; align-content:center}
+@media (min-width:920px){ .planta .texto{padding:64px 60px} }
+.planta .texto h2{font-size:clamp(32px,6vw,46px)}
+.planta .texto p{color:var(--tinta-2); max-width:46ch}
+.planta .latin{font-family:var(--display); font-style:italic; font-size:17px; color:var(--miel)}
+
+/* dosis */
+.dosis{display:grid; gap:16px}
+@media (min-width:760px){ .dosis{grid-template-columns:1fr 1fr} }
+.dosis article{border:1px solid var(--linea); border-radius:6px; padding:28px; background:var(--papel); display:grid; gap:8px; align-content:start}
+.dosis h3{font-size:26px}
+.dosis .cuanto{font-family:var(--display); font-size:34px; color:var(--bosque); line-height:1.1}
+@media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) .dosis .cuanto{color:var(--hoja)} }
+:root[data-theme="dark"] .dosis .cuanto{color:var(--hoja)}
+.dosis .nota{font-size:14.5px; color:var(--tinta-2)}
+
+.aviso{background:var(--aviso-fondo); border:1px solid color-mix(in srgb,var(--aviso) 30%,transparent); border-radius:6px; padding:26px; margin-top:22px}
+.aviso h3{font-family:var(--texto); font-size:17px; font-weight:700; color:var(--aviso); margin-bottom:12px}
+.aviso ul{margin:0; padding-left:19px; display:grid; gap:8px}
+.aviso li{font-size:15px; color:var(--aviso); line-height:1.55}
+
+/* confianza */
+.confianza{display:grid; gap:28px; align-items:center}
+@media (min-width:920px){ .confianza{grid-template-columns:1fr 1fr; gap:60px} }
+.confianza figure{margin:0; border-radius:6px; overflow:hidden}
+.confianza img{width:100%; height:auto}
+.hechos{display:grid; gap:18px}
+.hecho{display:grid; gap:4px; padding-left:18px; border-left:2px solid var(--miel)}
+.hecho b{font-size:16.5px}
+.hecho span{font-size:14.5px; color:var(--tinta-2); line-height:1.55}
+
+/* ficha técnica */
+.tecnica{border:1px solid var(--linea); border-radius:6px; overflow:hidden; margin-top:24px}
+.tecnica div{display:grid; grid-template-columns:auto 1fr; gap:16px; padding:14px 20px; border-bottom:1px solid var(--linea); font-size:15px}
+.tecnica div:last-child{border-bottom:0}
+.tecnica dt{color:var(--tinta-2)}
+.tecnica dd{margin:0; font-weight:600; text-align:right}
+
+/* cierre */
+.cierre{display:grid; gap:26px; align-items:center}
+@media (min-width:860px){ .cierre{grid-template-columns:1fr auto; gap:54px} }
+
+/* barra fija */
+.barra-compra{
+  position:fixed; left:0; right:0; bottom:0; z-index:40;
+  background:var(--papel); border-top:1px solid var(--linea);
+  padding:12px 22px calc(12px + env(safe-area-inset-bottom,0px));
+  display:flex; align-items:center; gap:14px;
+  transform:translateY(130%); transition:transform .26s cubic-bezier(.22,1,.36,1);
+}
+.barra-compra.visible{transform:none}
+.barra-compra .p{font-family:var(--display); font-size:24px; flex:none; font-variant-numeric:tabular-nums}
+.barra-compra .boton{flex:1; min-height:48px; padding-inline:18px; font-size:15.5px}
+@media (min-width:920px){ .barra-compra{display:none} }
+
+/* pie */
+.pie{background:var(--bosque); color:#B9CCB7; padding-block:48px 34px}
+@media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) .pie{color:var(--tinta-2)} }
+:root[data-theme="dark"] .pie{color:var(--tinta-2)}
+.pie .cols{display:grid; gap:30px}
+@media (min-width:780px){ .pie .cols{grid-template-columns:1.3fr 1fr} }
+.pie .logo{color:var(--crema)}
+.pie .logo small{color:#8FA78D}
+.titulo-pie{font-family:var(--texto); font-size:12px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:var(--crema); margin:0 0 14px}
+@media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) .titulo-pie{color:var(--tinta)} :root:not([data-theme="light"]) .pie .logo{color:var(--hoja)} }
+:root[data-theme="dark"] .titulo-pie{color:var(--tinta)}
+:root[data-theme="dark"] .pie .logo{color:var(--hoja)}
+.pie ul{list-style:none; margin:0; padding:0; display:grid; gap:8px; font-size:13.5px; line-height:1.5}
+.pie .fino{margin-top:32px; padding-top:20px; border-top:1px solid rgba(255,255,255,.13); font-size:12px; opacity:.7; display:flex; flex-wrap:wrap; gap:7px 20px; justify-content:space-between}
+
+:focus-visible{outline:2.5px solid var(--miel); outline-offset:3px; border-radius:4px}
+@media (prefers-reduced-motion:reduce){ *{animation:none!important; transition:none!important} }
+</style>
+</head>
+<body>
+
+
+<a class="saltar" href="#ficha">Ir al contenido</a>
+<div class="cintillo">Envíos a todo Colombia · Compra en la tienda oficial de Barber</div>
+
+<header class="barra">
+  <div class="envoltura">
+    <span class="logo" translate="no">BARBER<small>Siempre lo mejor, siempre natural</small></span>
+    <span class="reg">Registro Invima<br>PFT2021-0002798</span>
+  </div>
+</header>
+
+<main>
+  <!-- ── FICHA ───────────────────────────────────────────────── -->
+  <section class="ficha" id="ficha" tabindex="-1">
+    <div class="envoltura caja">
+
+      <div class="galeria">
+        <div class="principal">
+          <img id="foto-grande" src="img/frasco.jpg" alt="Frasco de Broncomiel jarabe, 120 mL" width="768" height="1002">
+        </div>
+        <div class="miniaturas" role="group" aria-label="Fotos del producto">
+          <button type="button" class="mini" aria-pressed="true" data-src="img/frasco.jpg" aria-label="El frasco"><img src="img/frasco.jpg" alt="" width="768" height="1002"></button>
+          <button type="button" class="mini" aria-pressed="false" data-src="img/caja.jpg" aria-label="La caja"><img src="img/caja.jpg" alt="" width="640" height="1022"></button>
+          <button type="button" class="mini" aria-pressed="false" data-src="img/hiedra.jpg" aria-label="Hojas de hiedra"><img src="img/hiedra.jpg" alt="" width="1344" height="752"></button>
+          <button type="button" class="mini" aria-pressed="false" data-src="img/propoleo.jpg" aria-label="Panal y propóleo"><img src="img/propoleo.jpg" alt="" width="1344" height="752"></button>
+        </div>
+      </div>
+
+      <div>
+        <p class="ruta">Inicio · Respiratorio · Broncomiel</p>
+        <h1 translate="no">Broncomiel</h1>
+        <span class="marca-sello">Fitoterapéutico · Hedera Helix y propóleo</span>
+        <p class="resumen">Jarabe para la tos que acompaña al resfriado. Frasco de 120&nbsp;mL, para adultos y niños desde los 7&nbsp;años.</p>
+
+        <div class="valoracion">
+          <span class="estrellas" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .9-5 4.8 1.2 7L12 17.8 5.8 21.2 7 14.2 2 9.4l7-.9z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .9-5 4.8 1.2 7L12 17.8 5.8 21.2 7 14.2 2 9.4l7-.9z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .9-5 4.8 1.2 7L12 17.8 5.8 21.2 7 14.2 2 9.4l7-.9z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .9-5 4.8 1.2 7L12 17.8 5.8 21.2 7 14.2 2 9.4l7-.9z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .9-5 4.8 1.2 7L12 17.8 5.8 21.2 7 14.2 2 9.4l7-.9z"/></svg>
+          </span>
+          Sin valoraciones todavía — sé el primero
+        </div>
+
+        <div class="precio-caja">
+          <div class="precio-fila" role="status" aria-live="polite" aria-atomic="true">
+            <span class="precio" id="p-precio">$18.000</span>
+            <s class="tachado" id="p-tachado" hidden>$0</s>
+            <span class="etiqueta-ahorro" id="p-ahorro" hidden>—</span>
+          </div>
+
+          <div class="opciones" role="radiogroup" aria-label="Presentación">
+            <button type="button" class="opcion" role="radio" aria-checked="true"
+              data-n="1" data-precio="18000"
+              data-url="https://barber.com.co/product/broncomiel-jarabe-expectorante-con-hedera-helix-y-propoleo/">
+              <span class="marca-radio" aria-hidden="true"><i></i></span>
+              <span><span class="qty">1 frasco</span><span class="sub">120&nbsp;mL · para probarlo</span></span>
+              <span class="val">$18.000</span>
+            </button>
+            <button type="button" class="opcion" role="radio" aria-checked="false"
+              data-n="2" data-precio="32400"
+              data-url="https://barber.com.co/product/broncomiel-jarabe-expectorante-con-hedera-helix-y-propoleo-x2/">
+              <span class="marca-radio" aria-hidden="true"><i></i></span>
+              <span><span class="qty">2 frascos</span><span class="sub">uno en casa, uno de repuesto</span></span>
+              <span class="val">$32.400<s>$36.000</s></span>
+            </button>
+            <button type="button" class="opcion" role="radio" aria-checked="false"
+              data-n="3" data-precio="45900"
+              data-url="https://barber.com.co/product/broncomiel-jarabe-expectorante-con-hedera-helix-y-propoleo-x3/">
+              <span class="marca-radio" aria-hidden="true"><i></i></span>
+              <span><span class="qty">3 frascos</span><span class="sub">el que más ahorra</span></span>
+              <span class="val">$45.900<s>$54.000</s></span>
+            </button>
+          </div>
+
+          <a class="boton" id="p-boton" style="margin-top:18px"
+             href="https://barber.com.co/product/broncomiel-jarabe-expectorante-con-hedera-helix-y-propoleo/"
+             target="_blank" rel="noopener">Agregar al carrito</a>
+          <p class="bajo-boton">El pago se completa en barber.com.co</p>
+        </div>
+
+        <ul class="puntos">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Dos componentes y nada más: extracto de hiedra y propóleo</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Desde los 7 años, sin fórmula médica</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Fabricado por Keops Farmacéutica</li>
+        </ul>
+
+        <div class="plegables">
+          <details>
+            <summary>Envíos y entregas</summary>
+            <div class="cuerpo"><p>Barber despacha a todo el país desde su tienda en línea. El costo y el tiempo se calculan en el carrito según la ciudad.</p></div>
+          </details>
+          <details>
+            <summary>Registro sanitario</summary>
+            <div class="cuerpo"><p>Invima PFT2021-0002798. Producto fitoterapéutico, de venta libre.</p></div>
+          </details>
+          <details>
+            <summary>Quién lo fabrica</summary>
+            <div class="cuerpo"><p>Lo produce Keops Farmacéutica. Barber lo distribuye y lo vende en su tienda oficial.</p></div>
+          </details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── GARANTÍAS ───────────────────────────────────────────── -->
+  <div class="garantias">
+    <div class="envoltura">
+      <div class="garantia">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 3l7 3v6c0 4.5-3 7.6-7 9-4-1.4-7-4.5-7-9V6l7-3z"/></svg>
+        <b>Registro vigente</b><span>Invima PFT2021-0002798</span>
+      </div>
+      <div class="garantia">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 7h11v8H3zM14 10h4l3 3v2h-7z"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg>
+        <b>Envíos a todo el país</b><span>Despacha Barber</span>
+      </div>
+      <div class="garantia">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 20c5-2 7-6 7-11-3 0-5 1-7 3-2-2-4-3-7-3 0 5 2 9 7 11z"/></svg>
+        <b>Dos componentes</b><span>Hiedra y propóleo</span>
+      </div>
+      <div class="garantia">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 10h18M6 6h12a2 2 0 012 2v9a2 2 0 01-2 2H6a2 2 0 01-2-2V8a2 2 0 012-2z"/></svg>
+        <b>Tienda oficial</b><span>No a un revendedor</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── PARA QUÉ ES ─────────────────────────────────────────── -->
+  <section class="bosque">
+    <div class="envoltura">
+      <div class="cabeza">
+        <span class="rotulo">Para qué es</span>
+        <h2>Para la tos que deja el resfriado</h2>
+        <p>Esa que llega cuando lo demás ya va cediendo y se queda de noche, cuando uno se acuesta y quisiera dormir de corrido.</p>
+      </div>
+      <p style="max-width:62ch; font-size:15px; opacity:.82">
+        El registro sanitario lo ampara para el tratamiento sintomático del resfrío agudo del tracto
+        respiratorio acompañado de tos. Eso es lo que esta página cuenta, y nada más: la ley permite
+        publicitar una sola indicación por pieza, y las demás viven en la etiqueta.
+      </p>
+    </div>
+  </section>
+
+  <!-- ── HIEDRA ──────────────────────────────────────────────── -->
+  <div class="planta">
+    <figure><img src="img/hiedra.jpg" alt="Hojas de hiedra con gotas de agua, a contraluz" width="1344" height="752" loading="lazy"></figure>
+    <div class="texto">
+      <span class="rotulo">El componente principal</span>
+      <h2>La hoja de hiedra</h2>
+      <span class="latin">Hedera helix</span>
+      <p>
+        La hiedra que trepa por los muros. De sus hojas secas se obtiene el extracto que llevan los
+        fitofármacos para las vías respiratorias, y es uno de los extractos vegetales mejor
+        documentados de Europa para la tos que acompaña al resfriado.
+      </p>
+      <p>
+        No se usa la hoja fresca ni el tallo: se usa el extracto estandarizado, que es lo que permite
+        que cada frasco lleve siempre la misma cantidad.
+      </p>
+    </div>
+  </div>
+
+  <!-- ── PROPÓLEO ────────────────────────────────────────────── -->
+  <div class="planta volteada">
+    <figure><img src="img/propoleo.jpg" alt="Panal de miel y un trozo de propóleo crudo sobre madera" width="1344" height="752" loading="lazy"></figure>
+    <div class="texto">
+      <span class="rotulo">El segundo componente</span>
+      <h2>El propóleo</h2>
+      <span class="latin">Resina de colmena</span>
+      <p>
+        Las abejas lo fabrican con resina de los árboles y lo usan para sellar la colmena y mantenerla
+        limpia. Es una de las sustancias más antiguas del botiquín casero: se usaba mucho antes de que
+        existieran las farmacias.
+      </p>
+      <p>
+        Es también el motivo de la advertencia más importante de este producto. Quien sea alérgico a
+        los derivados de la colmena no debe tomarlo.
+      </p>
+    </div>
+  </div>
+
+  <!-- ── CÓMO SE TOMA ────────────────────────────────────────── -->
+  <section class="crema" id="como-se-toma">
+    <div class="envoltura">
+      <div class="cabeza">
+        <span class="rotulo">Posología</span>
+        <h2>Cómo se toma</h2>
+        <p>Tal como aparece en la etiqueta. Si algo acá no coincide con el frasco que tienes en la mano, manda la etiqueta.</p>
+      </div>
+      <div class="dosis">
+        <article>
+          <h3>Adultos</h3>
+          <p class="cuanto">5 a 7,5&nbsp;mL</p>
+          <p class="nota">Tres veces al día.</p>
+        </article>
+        <article>
+          <h3>Niños desde 7 años y adolescentes</h3>
+          <p class="cuanto">7,5&nbsp;mL</p>
+          <p class="nota">Tres veces al día. Por debajo de los 7 años, no.</p>
+        </article>
+      </div>
+
+      <div class="aviso">
+        <h3>Antes de tomarlo</h3>
+        <ul>
+          <li>No se recomienda en personas alérgicas al propóleo o a productos derivados de la colmena.</li>
+          <li>En embarazo, lactancia o con condiciones médicas preexistentes, consulta a tu médico antes de usarlo.</li>
+          <li>No exceder la dosis indicada. Si los síntomas persisten, consultar al médico.</li>
+        </ul>
+      </div>
+
+      <dl class="tecnica">
+        <div><dt>Presentación</dt><dd>Jarabe, 120&nbsp;mL</dd></div>
+        <div><dt>Componentes</dt><dd>Extracto de Hedera helix y propóleo</dd></div>
+        <div><dt>Edad</dt><dd>Desde 7 años</dd></div>
+        <div><dt>Condición de venta</dt><dd>Venta libre</dd></div>
+        <div><dt>Registro</dt><dd>PFT2021-0002798</dd></div>
+        <div><dt>Fabricante</dt><dd>Keops Farmacéutica</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- ── CONFIANZA ───────────────────────────────────────────── -->
+  <section>
+    <div class="envoltura">
+      <div class="cabeza">
+        <span class="rotulo">Confianza</span>
+        <h2>Todavía nadie ha opinado, y preferimos decirlo</h2>
+        <p>La ficha de Broncomiel en la tienda no tiene valoraciones. Cuando lleguen van acá: opiniones sobre el sabor, cuánto rinde el frasco, cómo llegó el pedido. Testimonios de resultados en salud no publicamos, y no es por timidez: la norma no los permite.</p>
+      </div>
+      <div class="confianza">
+        <figure><img src="img/casa.jpg" alt="Una mujer descansa en el sofá de su casa con una taza entre las manos" width="1024" height="688" loading="lazy"></figure>
+        <div class="hechos">
+          <div class="hecho">
+            <b>Registro sanitario vigente</b>
+            <span>PFT2021-0002798. Un producto sin registro no puede venderse legalmente en Colombia; este lo tiene y el número está arriba, donde se puede comprobar.</span>
+          </div>
+          <div class="hecho">
+            <b>Laboratorio con nombre propio</b>
+            <span>Lo fabrica Keops Farmacéutica y lo distribuye Barber en su tienda oficial. No es un producto sin dueño.</span>
+          </div>
+          <div class="hecho">
+            <b>La etiqueta manda</b>
+            <span>La dosis, los componentes y las advertencias están impresos en el empaque, no solo en esta página.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PREGUNTAS ───────────────────────────────────────────── -->
+  <section class="crema">
+    <div class="envoltura">
+      <div class="cabeza">
+        <span class="rotulo">Preguntas frecuentes</span>
+        <h2>Lo que preguntan antes de comprar</h2>
+      </div>
+      <div class="plegables" style="margin-top:0; border-top:1px solid var(--linea)">
+        <details open>
+          <summary>¿Lo pueden tomar los niños?</summary>
+          <div class="cuerpo"><p>Desde los 7 años, 7,5&nbsp;mL tres veces al día. Por debajo de esa edad no, y esa línea no se negocia.</p></div>
+        </details>
+        <details>
+          <summary>¿Cuánto me dura un frasco?</summary>
+          <div class="cuerpo"><p>Son 120&nbsp;mL. A tres tomas diarias de 7,5&nbsp;mL rinde algo más de cinco días; a 5&nbsp;mL, cerca de ocho.</p></div>
+        </details>
+        <details>
+          <summary>Soy alérgico a la miel. ¿Puedo tomarlo?</summary>
+          <div class="cuerpo"><p>Lleva propóleo, que es un derivado de la colmena. Si eres alérgico a los productos de abeja, este jarabe no es para ti.</p></div>
+        </details>
+        <details>
+          <summary>¿Necesito fórmula médica?</summary>
+          <div class="cuerpo"><p>No. Es de venta libre, con registro sanitario Invima PFT2021-0002798.</p></div>
+        </details>
+        <details>
+          <summary>¿Lo puedo tomar con otro medicamento?</summary>
+          <div class="cuerpo"><p>Esa la responde quien te formuló el otro medicamento, no una página web. Llévale la caja a tu médico o al farmaceuta.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CIERRE ──────────────────────────────────────────────── -->
+  <section id="comprar">
+    <div class="envoltura cierre">
+      <div>
+        <h2 style="font-size:clamp(34px,7vw,48px)">Broncomiel, 120&nbsp;mL</h2>
+        <p style="color:var(--tinta-2); margin-top:12px; max-width:40ch">Hedera helix y propóleo, para la tos que acompaña al resfriado.</p>
+        <p class="precio" id="c-precio" style="margin-top:18px">$18.000</p>
+      </div>
+      <div style="min-width:min(100%,320px)">
+        <a class="boton" id="c-boton" href="https://barber.com.co/product/broncomiel-jarabe-expectorante-con-hedera-helix-y-propoleo/" target="_blank" rel="noopener">Agregar al carrito</a>
+        <a class="boton fantasma" href="#ficha" style="margin-top:11px">Ver las presentaciones</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="pie">
+  <div class="envoltura">
+    <div class="cols">
+      <div>
+        <span class="logo" translate="no">BARBER<small>Siempre lo mejor, siempre natural</small></span>
+        <p style="margin-top:16px; font-size:13.5px; max-width:40ch">Broncomiel lo fabrica Keops Farmacéutica y lo distribuye Barber. Se compra en barber.com.co.</p>
+      </div>
+      <div>
+        <h2 class="titulo-pie">Información legal</h2>
+        <ul>
+          <li>Producto fitoterapéutico de uso tradicional (PFT)</li>
+          <li>No exceder su consumo</li>
+          <li>Registro sanitario No. PFT2021-0002798</li>
+          <li>Leer Uso tradicional, contraindicaciones y advertencias en la etiqueta</li>
+          <li>Si los síntomas persisten, consultar al médico</li>
+        </ul>
+      </div>
+    </div>
+    <div class="fino">
+      <span>barber.com.co · Pronaturales Barber</span>
+      <span>Esta página no reemplaza la consulta con un profesional de la salud.</span>
+    </div>
+  </div>
+</footer>
+
+<div class="barra-compra" id="barra-compra">
+  <span class="p" id="b-precio">$18.000</span>
+  <a class="boton" id="b-boton" href="https://barber.com.co/product/broncomiel-jarabe-expectorante-con-hedera-helix-y-propoleo/" target="_blank" rel="noopener">Agregar</a>
+</div>
+
+<script>
+(function(){
+  var UNIT = 18000; // frasco suelto, para calcular el ahorro del combo
+  function pesos(n){ return "$" + n.toLocaleString("es-CO"); }
+
+  /* galería */
+  var grande = document.getElementById("foto-grande");
+  var minis = Array.prototype.slice.call(document.querySelectorAll(".mini"));
+  minis.forEach(function(m){
+    m.addEventListener("click", function(){
+      minis.forEach(function(o){ o.setAttribute("aria-pressed", String(o === m)); });
+      grande.src = m.dataset.src;
+      grande.alt = m.getAttribute("aria-label") || "";
+    });
+  });
+
+  /* presentación */
+  var opciones = Array.prototype.slice.call(document.querySelectorAll(".opcion"));
+  var pPrecio = document.getElementById("p-precio");
+  var pTachado = document.getElementById("p-tachado");
+  var pAhorro = document.getElementById("p-ahorro");
+  var cPrecio = document.getElementById("c-precio");
+  var bPrecio = document.getElementById("b-precio");
+  var botones = ["p-boton","c-boton","b-boton"].map(function(id){ return document.getElementById(id); });
+
+  function elegir(btn){
+    opciones.forEach(function(o){ o.setAttribute("aria-checked", String(o === btn)); });
+    var n = parseInt(btn.dataset.n, 10);
+    var precio = parseInt(btn.dataset.precio, 10);
+    var lista = UNIT * n;
+    var dif = lista - precio;
+    var v = pesos(precio);
+
+    pPrecio.textContent = v;
+    cPrecio.textContent = v;
+    bPrecio.textContent = v;
+    pTachado.hidden = dif <= 0;
+    pTachado.textContent = pesos(lista);
+    pAhorro.hidden = dif <= 0;
+    pAhorro.textContent = "Ahorras " + pesos(dif);
+    botones.forEach(function(b){ if (b) b.href = btn.dataset.url; });
+  }
+
+  opciones.forEach(function(btn){
+    btn.addEventListener("click", function(){ elegir(btn); });
+    btn.addEventListener("keydown", function(e){
+      if (["ArrowRight","ArrowLeft","ArrowDown","ArrowUp"].indexOf(e.key) < 0) return;
+      e.preventDefault();
+      var i = opciones.indexOf(btn);
+      var paso = (e.key === "ArrowRight" || e.key === "ArrowDown") ? 1 : -1;
+      var sig = opciones[(i + paso + opciones.length) % opciones.length];
+      sig.focus(); elegir(sig);
+    });
+  });
+
+  /* barra fija */
+  var barra = document.getElementById("barra-compra");
+  var ficha = document.getElementById("ficha");
+  var cierre = document.getElementById("comprar");
+  function revisar(){
+    var paso = window.scrollY > ficha.offsetHeight * 0.75;
+    var c = cierre.getBoundingClientRect();
+    var sobreCierre = c.top < window.innerHeight && c.bottom > 0;
+    barra.classList.toggle("visible", paso && !sobreCierre);
+  }
+  window.addEventListener("scroll", revisar, {passive:true});
+  window.addEventListener("resize", revisar);
+  revisar();
+})();
+</script>
+
+</body>
+</html>
